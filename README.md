@@ -1,5 +1,4 @@
-# 📱 BichoQFala - [Nome do Projeto]
-[Breve descrição do projeto: objetivo, tecnologias usadas (Expo, React Native, etc.)]
+# 📱 BichoQFala 
 
 # 🚀 Pré-requisitos
 
@@ -79,6 +78,7 @@ BASH:
 npx expo install
 
 Cache corrompido
+
 Limpe o cache do Expo:
 
 BASH:
@@ -99,13 +99,4 @@ BichoQFala/
 
 └── package.json       # Dependências e scripts
 
-📄 Licença
-MIT © [Seu Nome]
-
-Dicas extras:
-Substitua os placeholders ([Nome do Projeto], seu-usuario, etc.) pelos dados reais.
-
-
 ![image bichoqfala](https://github.com/user-attachments/assets/11cd0db5-e983-40de-af53-da0b6137fc2e)
-
-
