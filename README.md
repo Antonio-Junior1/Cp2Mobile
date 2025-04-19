@@ -1,21 +1,5 @@
 # 📱 BichoQFala 
 
-# 🚀 Pré-requisitos
-
-Antes de começar, verifique se você tem instalado em sua máquina:
-
-Node.js (v18 ou superior)
-
-Git
-
-Expo CLI (global)
-
-BASH:
-
-npm install -g expo-cli
-
-Em emulador (Android Studio/Xcode) ou dispositivo físico com app Expo Go
-
 # ⬇️ Instalação
 
 Clone o repositório
@@ -30,10 +14,6 @@ BASH:
 
 npm install
 
-OU (se usar Yarn)
-
-yarn
-
 Instale dependências específicas do Expo Web (se necessário)
 
 BASH:
@@ -46,7 +26,7 @@ Modo desenvolvimento (Expo)
 
 BASH:
 
-npx expo start
+npm start
 
 Escaneie o QR code com o app Expo Go (dispositivo físico)
 
