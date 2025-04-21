@@ -19,7 +19,7 @@ const DevScreen = ({ navigation }) => {
             
             <View style={styles.devContainer}>
               <Image 
-                source={{ uri: 'https://img.freepik.com/fotos-gratis/programador-trabalhando-com-codigo_23-2149022630.jpg' }} 
+                source={{ uri: 'https://img.freepik.com/fotos-gratis/programador-homem-trabalhando-com-codigo_23-2149022641.jpg' }} 
                 style={styles.devImage}
               />
               <Text style={styles.devName}>Ana Silva</Text>
@@ -29,7 +29,7 @@ const DevScreen = ({ navigation }) => {
             
             <View style={styles.devContainer}>
               <Image 
-                source={{ uri: 'https://img.freepik.com/fotos-gratis/programador-homem-trabalhando-com-codigo_23-2149022641.jpg' }} 
+                source={{ uri: 'https://img.freepik.com/fotos-gratis/programador-trabalhando-com-codigo_23-2149022630.jpg' }} 
                 style={styles.devImage}
               />
               <Text style={styles.devName}>Carlos Oliveira</Text>

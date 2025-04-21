@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  FlatList, 
+  ScrollView, 
+  ActivityIndicator,
+  Linking,
+  Alert
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,36 +18,62 @@ const EducacaoScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        setTimeout(() => {
-          const mockData = [
-            {
-              id: 1,
-              title: "Como Identificar Maus Tratos",
-              category: "Guia Prático",
-              description: "Aprenda os sinais de que um animal está sofrendo maus tratos e como agir.",
-              image: 'https://img.freepik.com/fotos-gratis/veterinario-examinando-cao-doente_23-2149011305.jpg',
-            },
-            {
-              id: 2,
-              title: "Direitos dos Animais no Brasil",
-              category: "Legislação",
-              description: "Conheça a legislação brasileira sobre proteção animal e seus direitos.",
-              image: 'https://img.freepik.com/fotos-gratis/advogado-com-documentos_23-2148884660.jpg',
-            }
-          ];
-          setArticles(mockData);
-          setLoading(false);
-        }, 1000);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
+  
+  const mockArticles = [
+    {
+      id: 1,
+      title: "Como Identificar Maus Tratos",
+      category: "Guia Prático",
+      description: "Aprenda os sinais de que um animal está sofrendo maus tratos",
+      image: 'https://www.vereadorafernandamoreno.com.br/wp-content/uploads/2019/10/maus-tratos.jpg',
+      externalUrl: 'https://www.worldanimalprotection.org.br/como-identificar-maus-tratos'
+    },
+    {
+      id: 2,
+      title: "Direitos dos Animais no Brasil",
+      category: "Legislação",
+      description: "Conheça a legislação brasileira sobre proteção animal",
+      image: 'https://atanews.com.br/images/colunas/224/24033237_animal_jui.jpg',
+      externalUrl: 'https://www.ambitojuridico.com.br/edicoes/revista-152/direito-animal-no-brasil'
+    },
+    {
+      id: 3,
+      title: "Primeiros Socorros para Animais",
+      category: "Saúde",
+      description: "Aprenda procedimentos básicos para emergências",
+      image: 'https://blog.polipet.com.br/wp-content/uploads/2023/06/emercia.jpeg',
+      externalUrl: 'https://www.petlove.com.br/dicas/primeiros-socorros-para-caes-e-gatos'
+    },
+    {
+      id: 4,
+      title: "Adoção Responsável",
+      category: "Guia Completo",
+      description: "Tudo o que você precisa saber antes de adotar um animal",
+      image: 'https://sindilojas-sp.org.br/wp-content/uploads/2018/07/Ado%C3%A7%C3%A3o-de-Animais-750x442.png',
+      externalUrl: 'https://www.amigonaosecompra.com.br'
+    }
+  ];
 
-    fetchArticles();
+  const handleOpenExternalLink = async (url) => {
+    try {
+      const supported = await Linking.canOpenURL(url);
+      if (supported) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert('Erro', 'Não foi possível abrir este link');
+      }
+    } catch (error) {
+      Alert.alert('Erro', `Ocorreu um erro: ${error.message}`);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setArticles(mockArticles);
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -54,7 +89,10 @@ const EducacaoScreen = ({ navigation }) => {
             <Text style={styles.sectionTitle}>Materiais Educativos</Text>
             
             {loading ? (
-              <Text style={styles.loadingText}>Carregando materiais...</Text>
+              <View style={styles.loadingContainer}>
+                <ActivityIndicator size="large" color="#3A7D44" />
+                <Text style={styles.loadingText}>Carregando conteúdo...</Text>
+              </View>
             ) : (
               <FlatList
                 data={articles}
@@ -66,18 +104,12 @@ const EducacaoScreen = ({ navigation }) => {
                     category={item.category}
                     description={item.description}
                     image={item.image}
+                    onPress={() => handleOpenExternalLink(item.externalUrl)}
                   />
                 )}
                 contentContainerStyle={styles.listContent}
               />
             )}
-            
-            <TouchableOpacity 
-              style={styles.moreButton}
-              onPress={() => navigation.navigate('Perfil')}
-            >
-              <Text style={styles.moreButtonText}>VER MAIS MATERIAIS</Text>
-            </TouchableOpacity>
           </View>
         </ScrollView>
         
@@ -97,48 +129,40 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flexGrow: 1,
-    paddingBottom: 70,
-    paddingTop: 15,
+    paddingBottom: 80,
+    paddingTop: 20,
   },
   contentBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.85)',
-    marginHorizontal: 15,
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    marginHorizontal: 16,
     marginVertical: 10,
-    borderRadius: 12,
+    borderRadius: 14,
     padding: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 3,
+    shadowRadius: 8,
+    elevation: 5,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#3A7D44',
-    marginBottom: 20,
+    marginBottom: 24,
     textAlign: 'center',
   },
+  loadingContainer: {
+    padding: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   loadingText: {
-    textAlign: 'center',
+    marginTop: 16,
     color: '#555',
     fontSize: 16,
-    padding: 20,
   },
   listContent: {
     paddingBottom: 10,
-  },
-  moreButton: {
-    backgroundColor: '#FF6B35',
-    padding: 15,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  moreButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
   },
 });
 

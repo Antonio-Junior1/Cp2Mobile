@@ -36,6 +36,14 @@ const Footer = ({ navigation }) => {
         <Ionicons name="person" size={24} color="#3A7D44" />
         <Text style={styles.footerText}>Perfil</Text>
       </TouchableOpacity>
+      
+      <TouchableOpacity 
+        style={styles.footerButton}
+        onPress={() => navigation.navigate('DevScreen')}
+      >
+        <Ionicons name="code" size={24} color="#3A7D44" />
+        <Text style={styles.footerText}>Devs</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -44,6 +52,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
     backgroundColor: 'white',
     paddingVertical: 12,
     borderTopWidth: 1,
@@ -56,12 +65,15 @@ const styles = StyleSheet.create({
   },
   footerButton: {
     alignItems: 'center',
-    paddingHorizontal: 5,
+    justifyContent: 'center',
+    paddingHorizontal: 2,  // Reduzido para caber 5 itens
+    minWidth: 60,         // Ajustado para melhor espaçamento
   },
   footerText: {
     color: '#555',
-    fontSize: 12,
-    marginTop: 5,
+    fontSize: 10,         // Reduzido para caber mais itens
+    marginTop: 4,
+    textAlign: 'center',
   },
 });
 
