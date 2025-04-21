@@ -66,12 +66,12 @@ const styles = StyleSheet.create({
   footerButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 2,  // Reduzido para caber 5 itens
-    minWidth: 60,         // Ajustado para melhor espaçamento
+    paddingHorizontal: 2,  
+    minWidth: 60,        
   },
   footerText: {
     color: '#555',
-    fontSize: 10,         // Reduzido para caber mais itens
+    fontSize: 10,        
     marginTop: 4,
     textAlign: 'center',
   },
