@@ -26,7 +26,7 @@ const EducacaoScreen = ({ navigation }) => {
       category: "Guia Prático",
       description: "Aprenda os sinais de que um animal está sofrendo maus tratos",
       image: 'https://www.vereadorafernandamoreno.com.br/wp-content/uploads/2019/10/maus-tratos.jpg',
-      externalUrl: 'https://www.worldanimalprotection.org.br/como-identificar-maus-tratos'
+      externalUrl: 'https://foxvet.com.br/o-que-configura-maus-tratos-aos-animais/'
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const EducacaoScreen = ({ navigation }) => {
       category: "Legislação",
       description: "Conheça a legislação brasileira sobre proteção animal",
       image: 'https://atanews.com.br/images/colunas/224/24033237_animal_jui.jpg',
-      externalUrl: 'https://www.ambitojuridico.com.br/edicoes/revista-152/direito-animal-no-brasil'
+      externalUrl: 'https://www.gov.br/mma/pt-br/assuntos/biodiversidade-e-biomas/direitos-animais'
     },
     {
       id: 3,
