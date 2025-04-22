@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  FlatList, 
-  ScrollView, 
-  ActivityIndicator,
-  Linking,
-  Alert
-} from 'react-native';
+import axios from 'axios';
 import { LinearGradient } from 'expo-linear-gradient';
-import Header from '../components/Header';
+import React, { useEffect, useState } from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  Linking,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 import MaterialCard from '../components/MaterialCard';
 
 const EducacaoScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  
-  const mockArticles = [
+  // Configurações da API Petfinder (substitua com suas credenciais)
+  const API_KEY = 'ArVgjj8shFk0jWIZChiGIQwqAuJKeKqDLgDX2zcDqe7U20mVK9';
+  const API_SECRET = 'ObOW6NGmGc8zV1udZucYuUUhUOhJILwyN9m6MdY1';
+  const API_URL = 'https://api.petfinder.com/v2';
+
+  // Dados mockados para fallback
+  const getMockArticles = () => [
     {
       id: 1,
       title: "Como Identificar Maus Tratos",
@@ -54,6 +61,7 @@ const EducacaoScreen = ({ navigation }) => {
     }
   ];
 
+  // Função para abrir links externos
   const handleOpenExternalLink = async (url) => {
     try {
       const supported = await Linking.canOpenURL(url);
@@ -67,13 +75,52 @@ const EducacaoScreen = ({ navigation }) => {
     }
   };
 
+  // Efeito para carregar os dados da API
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setArticles(mockArticles);
-      setLoading(false);
-    }, 1000);
+    const fetchArticles = async () => {
+      try {
+        // Primeiro obtemos o token de acesso
+        const authResponse = await axios.post(`${API_URL}/oauth2/token`, {
+          grant_type: 'client_credentials',
+          client_id: API_KEY,
+          client_secret: API_SECRET
+        });
 
-    return () => clearTimeout(timer);
+        const token = authResponse.data.access_token;
+
+        // Agora fazemos a requisição para obter os animais
+        const response = await axios.get(`${API_URL}/animals`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          params: {
+            type: 'dog', // Pode mudar para outros animais
+            page: 1,
+            limit: 4
+          }
+        });
+
+        // Transformamos os dados da API no formato que nossa aplicação espera
+        const formattedArticles = response.data.animals.map(animal => ({
+          id: animal.id,
+          title: animal.name || 'Artigo Educativo',
+          category: animal.type ? `Tipo: ${animal.type}` : 'Cuidados',
+          description: animal.description || 'Informações importantes sobre cuidados com animais',
+          image: animal.photos[0]?.medium || 'https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg',
+          externalUrl: animal.url || 'https://www.petfinder.com'
+        }));
+
+        setArticles(formattedArticles);
+        setLoading(false);
+      } catch (err) {
+        console.error('Erro ao buscar dados:', err);
+        setError('Falha ao carregar os artigos. Mostrando conteúdo local...');
+        setLoading(false);
+        setArticles(getMockArticles());
+      }
+    };
+
+    fetchArticles();
   }, []);
 
   return (
@@ -83,11 +130,15 @@ const EducacaoScreen = ({ navigation }) => {
         style={styles.pageBackground}
       >
         <Header title="EDUCAÇÃO ANIMAL" />
-        
+
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.contentBox}>
             <Text style={styles.sectionTitle}>Materiais Educativos</Text>
-            
+
+            {error && (
+              <Text style={styles.errorText}>{error}</Text>
+            )}
+
             {loading ? (
               <View style={styles.loadingContainer}>
                 <ActivityIndicator size="large" color="#3A7D44" />
@@ -99,7 +150,7 @@ const EducacaoScreen = ({ navigation }) => {
                 keyExtractor={(item) => item.id.toString()}
                 scrollEnabled={false}
                 renderItem={({ item }) => (
-                  <MaterialCard 
+                  <MaterialCard
                     title={item.title}
                     category={item.category}
                     description={item.description}
@@ -112,7 +163,7 @@ const EducacaoScreen = ({ navigation }) => {
             )}
           </View>
         </ScrollView>
-        
+
         <Footer navigation={navigation} />
       </LinearGradient>
     </View>
@@ -160,6 +211,12 @@ const styles = StyleSheet.create({
     marginTop: 16,
     color: '#555',
     fontSize: 16,
+  },
+  errorText: {
+    color: '#FF6B35',
+    textAlign: 'center',
+    marginBottom: 20,
+    fontWeight: '500',
   },
   listContent: {
     paddingBottom: 10,

@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import Header from '../components/Header';
+import React from 'react';
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -12,38 +12,38 @@ const HomeScreen = ({ navigation }) => {
         style={styles.pageBackground}
       >
         <Header title="BICHOQFALA" />
-        
+
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.contentBox}>
-            <Image 
-              source={{ uri: 'https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg' }} 
+            <Image
+              source={{ uri: 'https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg' }}
               style={styles.image}
             />
-            
+
             <Text style={styles.welcomeText}>Seja a Voz dos Animais</Text>
-            
+
             <View style={styles.buttonContainer}>
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={[styles.button, styles.primaryButton]}
                 onPress={() => navigation.navigate('Denuncia')}
               >
                 <Text style={styles.buttonText}>FAZER DENÚNCIA</Text>
               </TouchableOpacity>
-              
-              <TouchableOpacity 
+
+              <TouchableOpacity
                 style={[styles.button, styles.secondaryButton]}
                 onPress={() => navigation.navigate('Educacao')}
               >
-                <Text style={styles.buttonText}>EDUCAÇÃO ANIMAL</Text>
+                <Text style={styles.buttonText}>ADOTE UM PET</Text>
               </TouchableOpacity>
             </View>
-            
+
             <Text style={styles.infoText}>
               Ajude a proteger os animais denunciando maus-tratos e aprendendo sobre seus direitos.
             </Text>
           </View>
         </ScrollView>
-        
+
         <Footer navigation={navigation} />
       </LinearGradient>
     </View>
