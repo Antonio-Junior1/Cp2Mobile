@@ -33,15 +33,17 @@ export default function App() {
             }}
           >
             <Stack.Screen
-              name="DevScreen"
-              component={DevScreen}
-              options={{ title: "Desenvolvedores" }}
-            />
-            <Stack.Screen
               name="Home"
               component={HomeScreen}
               options={{ title: "Início" }}
             />
+
+            <Stack.Screen
+              name="DevScreen"
+              component={DevScreen}
+              options={{ title: "Desenvolvedores" }}
+            />
+
             <Stack.Screen
               name="Denuncia"
               component={DenunciaScreen}
