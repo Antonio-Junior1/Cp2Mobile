@@ -19,24 +19,34 @@ const DevScreen = ({ navigation }) => {
             
             <View style={styles.devContainer}>
               <Image 
-                source={{ uri: 'https://img.freepik.com/fotos-gratis/programador-homem-trabalhando-com-codigo_23-2149022641.jpg' }} 
+                source={{ uri: 'https://media.licdn.com/dms/image/v2/D5603AQG4PMfN4C_UGQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1711836709694?e=1750896000&v=beta&t=M8_OcqcRcGzrUo--dPxmKC3lWCxPjyh8XxwYUZojOrg' }} 
                 style={styles.devImage}
               />
-              <Text style={styles.devName}>Ana Silva</Text>
-              <Text style={styles.devRole}>Desenvolvedora Front-end</Text>
-              <Text style={styles.devContact}>ana@bichoqfala.com</Text>
+              <Text style={styles.devName}>Antônio Junior</Text>
+              <Text style={styles.devRole}>Desenvolvedor Front-end</Text>
+              <Text style={styles.devContact}>antonio@bichoqfala.com</Text>
             </View>
             
             <View style={styles.devContainer}>
               <Image 
-                source={{ uri: 'https://img.freepik.com/fotos-gratis/programador-trabalhando-com-codigo_23-2149022630.jpg' }} 
+                source={{ uri: 'https://media.licdn.com/dms/image/v2/D4E35AQGbbAshHPPCSg/profile-framedphoto-shrink_800_800/B4EZXJ3134GgAk-/0/1742848614287?e=1745974800&v=beta&t=wDvi8PctluHdiQgTbu7TPwNCY3MxXEQ5tb-E3OsdeGM' }} 
                 style={styles.devImage}
               />
-              <Text style={styles.devName}>Carlos Oliveira</Text>
+              <Text style={styles.devName}>Carlos Eduardo</Text>
               <Text style={styles.devRole}>Desenvolvedor Back-end</Text>
               <Text style={styles.devContact}>carlos@bichoqfala.com</Text>
             </View>
-            
+
+            {/* <View style={styles.devContainer}>
+              <Image 
+                source={{ uri: 'https://media.licdn.com/media/AAYQAQSOAAgAAQAAAAAAAB-zrMZEDXI2T62PSuT6kpB6qg.pnghttps://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fpub%2Fdir%2FCaio%2FSilva%2BTeixeira%3Ftrk%3Dpublic_profile_samename-see-all&psig=AOvVaw3O2CRGejhOielEYzRcVztp&ust=1745456433983000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMCXm4f67IwDFQAAAAAdAAAAABAEhttps://media.licdn.com/dms/image/v2/D4E35AQEfVQ2sOSngtQ/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1723386836636?e=1745978400&v=beta&t=D365nnVuRy5LspFHajUZr7Za0ax0CsFUiCrOa2Il8HE' }} 
+                style={styles.devImage}
+              />
+              <Text style={styles.devName}>Caio Carnetti</Text>
+              <Text style={styles.devRole}>Marketing</Text>
+              <Text style={styles.devContact}>caio@bichoqfala.com</Text>
+            </View>
+             */}
             <Text style={styles.missionText}>
               Nossa missão é combater os maus tratos animais através da tecnologia, 
               facilitando denúncias e promovendo educação.

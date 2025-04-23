@@ -129,11 +129,11 @@ const EducacaoScreen = ({ navigation }) => {
         colors={['#f5f5f5', '#e8f5e9']}
         style={styles.pageBackground}
       >
-        <Header title="EDUCAÇÃO ANIMAL" />
+        <Header title="Área de adoção" />
 
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.contentBox}>
-            <Text style={styles.sectionTitle}>Materiais Educativos</Text>
+            <Text style={styles.sectionTitle}>Adote e ajude!</Text>
 
             {error && (
               <Text style={styles.errorText}>{error}</Text>

@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { LinearGradient } from "expo-linear-gradient";
 import HomeScreen from "./screens/HomeScreen";
 import DenunciaScreen from "./screens/DenunciaScreen";
-import EducacaoScreen from "./screens/EducacaoScreen";
+import AdocaoScreen from "./screens/AdocaoScreen";
 import PerfilScreen from "./screens/PerfilScreen";
 import DevScreen from "./screens/DevScreen";
 
@@ -49,8 +49,8 @@ export default function App() {
             />
             <Stack.Screen
               name="Educacao"
-              component={EducacaoScreen}
-              options={{ title: "Educação Animal" }}
+              component={AdocaoScreen}
+              options={{ title: "Área de adoção" }}
             />
             <Stack.Screen
               name="Perfil"
