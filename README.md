@@ -2,9 +2,11 @@
 
 # 👤 Integrantes
 
-Carlos Eduardo: RM555223
-Antônio Lino: RM554518
-Caio Carnetti: RM554600
+## Carlos Eduardo: RM555223
+
+## Antônio Lino: RM554518
+
+## Caio Carnetti: RM554600
 
 
 # ⬇️ Instalação
