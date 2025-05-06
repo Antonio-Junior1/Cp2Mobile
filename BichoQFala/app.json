@@ -3,12 +3,12 @@
     "name": "BichoQFala",
     "slug": "BichoQFala",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "orientation": "default",
+    "icon": "./assets/dog.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/dog.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,12 +17,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/dog.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jrzim.BichoQFala"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "eb23c4fc-f5e5-402f-bc12-43d2e135e9ae"
+      }
     }
   }
 }
