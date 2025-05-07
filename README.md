@@ -13,7 +13,7 @@
 
 Clone o repositório
 
-git clone https://github.com/seu-usuario/BichoQFala.git
+git clone https://github.com/antonio-junior1/BichoQFala.git
 
 Comando: cd BichoQFala
 

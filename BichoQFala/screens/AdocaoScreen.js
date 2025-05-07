@@ -61,7 +61,7 @@ const EducacaoScreen = ({ navigation }) => {
     }
   ];
 
-  // Função para abrir links externos
+  
   const handleOpenExternalLink = async (url) => {
     try {
       const supported = await Linking.canOpenURL(url);
@@ -75,11 +75,11 @@ const EducacaoScreen = ({ navigation }) => {
     }
   };
 
-  // Efeito para carregar os dados da API
+  
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        // Primeiro obtemos o token de acesso
+        
         const authResponse = await axios.post(`${API_URL}/oauth2/token`, {
           grant_type: 'client_credentials',
           client_id: API_KEY,
@@ -88,19 +88,19 @@ const EducacaoScreen = ({ navigation }) => {
 
         const token = authResponse.data.access_token;
 
-        // Agora fazemos a requisição para obter os animais
+        
         const response = await axios.get(`${API_URL}/animals`, {
           headers: {
             Authorization: `Bearer ${token}`
           },
           params: {
-            type: 'dog', // Pode mudar para outros animais
+            type: 'dog', 
             page: 1,
             limit: 4
           }
         });
 
-        // Transformamos os dados da API no formato que nossa aplicação espera
+        
         const formattedArticles = response.data.animals.map(animal => ({
           id: animal.id,
           title: animal.name || 'Artigo Educativo',

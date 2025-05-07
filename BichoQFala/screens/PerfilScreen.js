@@ -48,7 +48,7 @@ const PerfilScreen = ({ navigation }) => {
               style={styles.secondaryButton}
               onPress={() => navigation.navigate('Educacao')}
             >
-              <Text style={styles.buttonText}>MATERIAIS EDUCATIVOS</Text>
+              <Text style={styles.buttonText}>ADOTE UM ANIMAL</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
