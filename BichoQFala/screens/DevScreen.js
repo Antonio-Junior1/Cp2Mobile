@@ -26,10 +26,20 @@ const DevScreen = ({ navigation }) => {
               <Text style={styles.devRole}>Desenvolvedor Front-end</Text>
               <Text style={styles.devContact}>antonio@bichoqfala.com</Text>
             </View>
+
+            <View style={styles.devContainer}>
+              <Image 
+                source={{ uri: 'https://media.licdn.com/dms/image/v2/D4E35AQEfVQ2sOSngtQ/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1723386836636?e=1747256400&v=beta&t=XCY2Ommd8CfgoZgx7BvpvVgwcmNd1aezAnPFpopAo3k' }} 
+                style={styles.devImage}
+              />
+              <Text style={styles.devName}>Caio Carnetti</Text>
+              <Text style={styles.devRole}>Desenvolvedor Full Stack</Text>
+              <Text style={styles.devContact}>caiocarnetti@bichoqfala.com</Text>
+            </View>
             
             <View style={styles.devContainer}>
               <Image 
-                source={{ uri: 'https://media.licdn.com/dms/image/v2/D4E35AQGbbAshHPPCSg/profile-framedphoto-shrink_800_800/B4EZXJ3134GgAk-/0/1742848614287?e=1745974800&v=beta&t=wDvi8PctluHdiQgTbu7TPwNCY3MxXEQ5tb-E3OsdeGM' }} 
+                source={{ uri: 'https://media.licdn.com/dms/image/v2/D4E35AQGbbAshHPPCSg/profile-framedphoto-shrink_200_200/B4EZXJ3134GgAc-/0/1742848614287?e=1747256400&v=beta&t=2fFC818seqWrc7bhYK40S1X1sGVWuvFathOG2B0makU' }} 
                 style={styles.devImage}
               />
               <Text style={styles.devName}>Carlos Eduardo</Text>

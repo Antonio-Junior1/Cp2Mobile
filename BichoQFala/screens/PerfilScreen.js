@@ -17,7 +17,7 @@ const PerfilScreen = ({ navigation }) => {
           <View style={styles.contentBox}>
             <View style={styles.profileHeader}>
               <Image 
-                source={{ uri: 'https://media.licdn.com/dms/image/v2/D4E35AQEfVQ2sOSngtQ/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1723386836636?e=1745978400&v=beta&t=D365nnVuRy5LspFHajUZr7Za0ax0CsFUiCrOa2Il8HE' }} 
+                source={{ uri: 'https://media.licdn.com/dms/image/v2/D4E35AQEfVQ2sOSngtQ/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1723386836636?e=1747256400&v=beta&t=XCY2Ommd8CfgoZgx7BvpvVgwcmNd1aezAnPFpopAo3k' }} 
                 style={styles.profileImage}
               />
               <View style={styles.profileInfo}>
