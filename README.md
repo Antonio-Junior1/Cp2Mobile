@@ -20,7 +20,7 @@ Este projeto foi aprimorado com a inclusão de animações e transições para m
 Clone o repositório
 
 \`\`\`bash
-git clone https://github.com/antonio-junior1/BichoQFala.git
+git clone https://github.com/Antonio-Junior1/Cp2Mobile
 \`\`\`
 
 Comando: \`cd BichoQFala\`
