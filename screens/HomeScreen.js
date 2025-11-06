@@ -1,6 +1,8 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { MotiView } from 'moti';
+import { useFocusEffect } from '@react-navigation/native';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
@@ -14,7 +16,12 @@ const HomeScreen = ({ navigation }) => {
         <Header title="BICHOQFALA" />
 
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <View style={styles.contentBox}>
+          <MotiView
+            from={{ opacity: 0, translateY: 50 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ type: 'timing', duration: 800 }}
+            style={styles.contentBox}
+          >
             <Image
               source={{ uri: 'https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg' }}
               style={styles.image}
@@ -41,7 +48,7 @@ const HomeScreen = ({ navigation }) => {
             <Text style={styles.infoText}>
               Ajude a proteger os animais denunciando maus-tratos e aprendendo sobre seus direitos.
             </Text>
-          </View>
+          </MotiView>
         </ScrollView>
 
         <Footer navigation={navigation} />

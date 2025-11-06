@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 import { LinearGradient } from "expo-linear-gradient";
 import HomeScreen from "./screens/HomeScreen";
 import DenunciaScreen from "./screens/DenunciaScreen";
@@ -21,6 +21,7 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator
             screenOptions={{
+              ...TransitionPresets.SlideFromRightIOS,
               headerStyle: styles.header,
               headerTintColor: "#fff",
               headerTitleStyle: styles.headerTitle,

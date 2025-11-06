@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { MotiView } from 'moti';
+import { useFocusEffect } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -30,7 +32,12 @@ const DenunciaScreen = ({ navigation }) => {
         <Header title="FAZER DENÚNCIA" />
         
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <View style={styles.contentBox}>
+          <MotiView
+            from={{ opacity: 0, translateY: 50 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ type: 'timing', duration: 800 }}
+            style={styles.contentBox}
+          >
             <Text style={styles.title}>Denuncie maus tratos</Text>
             
             <View style={styles.formGroup}>
@@ -78,7 +85,7 @@ const DenunciaScreen = ({ navigation }) => {
             >
               <Text style={styles.buttonText}>ENVIAR DENÚNCIA</Text>
             </TouchableOpacity>
-          </View>
+          </MotiView>
         </ScrollView>
         
         <Footer navigation={navigation} />
